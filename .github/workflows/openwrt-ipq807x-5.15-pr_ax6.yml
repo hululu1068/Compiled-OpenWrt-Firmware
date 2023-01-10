@@ -73,9 +73,6 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
-    
-    - name: add upx
-      run: cd tools/upx-3.96-amd64_linux && chmod +x upx && cp upx openwrt/staging_dir/host/bin
 
     - name: Load custom configuration
       run: |
