@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build openwrt-lean-R2100-AP
+name: Build openwrt-ipq807x-5.15-pr_ax6
 
 on:
   repository_dispatch:
@@ -20,12 +20,12 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: 20220505
+  REPO_URL: https://github.com/robimarko/openwrt
+  REPO_BRANCH: ipq807x-5.15-pr
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: lede-R2100-AP.config
+  CONFIG_FILE: ipq807x-5.15-pr_ax6.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
+  DIY_P2_SH: diy-part2-ax6.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -73,6 +73,9 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
+    
+    - name: add upx
+      run: cd tools/upx-3.96-amd64_linux && chmod +x upx && cp upx openwrt/staging_dir/host/bin
 
     - name: Load custom configuration
       run: |

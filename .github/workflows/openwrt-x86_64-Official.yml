@@ -20,8 +20,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: openwrt-21.02
+  REPO_URL: https://github.com/hululu1068/OpenWRT-Code.git
+  REPO_BRANCH: v22.03.3
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: openwrt-x86_64-Official.config
   DIY_P1_SH: diy-part01.sh
@@ -73,6 +73,9 @@ jobs:
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
+
+    - name: add upx
+      run: cd tools/upx-3.96-amd64_linux && chmod +x upx && cp upx openwrt/staging_dir/host/bin
 
     - name: Load custom configuration
       run: |
