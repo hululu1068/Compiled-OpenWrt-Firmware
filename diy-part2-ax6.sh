@@ -32,7 +32,7 @@ git clone -b packages https://github.com/xiaorouji/openwrt-passwall.git package/
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/custom-package/luci-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall2.git package/custom-package/luci-passwall2
 git clone --depth=1 https://github.com/fw876/helloworld.git package/custom-package/ssr-plus
-git clone https://github.com/vernesong/OpenClash.git package/custom-package/OpenClash
+# git clone https://github.com/vernesong/OpenClash.git package/custom-package/OpenClash
 
 # git clone https://github.com/yichya/luci-app-xray.git package/custom-package/luci-app-xray
 # git clone https://github.com/Mitsuhaxy/luci-i18n-xray-zh-cn.git package/custom-package/luci-i18n-xray-zh-cn
@@ -53,4 +53,4 @@ wget https://github.com/upx/upx/releases/download/v3.96/upx-3.96-amd64_linux.tar
 tar -Jxf upx-3.96-amd64_linux.tar.xz
 cd upx-3.96-amd64_linux
 chmod +x upx
-cp upx staging_dir/host/bin
+cp upx openwrt/staging_dir/host/bin
