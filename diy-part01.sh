@@ -36,7 +36,3 @@ git clone https://github.com/Mitsuhaxy/luci-i18n-xray-zh-cn.git package/custom-p
 git clone https://github.com/pymumu/smartdns.git package/custom-package/smartdns
 git clone https://github.com/sirpdboy/luci-app-netdata.git package/custom-package/luci-app-netdata
 
-# Add UPX
-cd ~/work/Compiled-OpenWrt-Firmware/Compiled-OpenWrt-Firmware/tools/upx-3.96-amd64_linux
-sudo chmod +x upx
-sudo cp ./upx ~/work/Compiled-OpenWrt-Firmware/Compiled-OpenWrt-Firmware/openwrt/staging_dir/host/bin/

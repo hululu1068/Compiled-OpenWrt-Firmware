@@ -24,3 +24,8 @@
 # sed -i "s/0.openwrt.pool.ntp.org/ntp.aliyun.com/g" package/base-files/files/bin/config_generate
 # sed -i "s/1.openwrt.pool.ntp.org/cn.ntp.org.cn/g" package/base-files/files/bin/config_generate
 # sed -i "s/2.openwrt.pool.ntp.org/cn.pool.ntp.org/g" package/base-files/files/bin/config_generate
+
+# Add UPX
+cd ~/work/Compiled-OpenWrt-Firmware/Compiled-OpenWrt-Firmware/tools/upx-3.96-amd64_linux
+sudo chmod +x upx
+sudo cp ./upx ~/work/Compiled-OpenWrt-Firmware/Compiled-OpenWrt-Firmware/openwrt/staging_dir/host/bin/
