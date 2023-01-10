@@ -49,8 +49,11 @@ sed -i "s/1.openwrt.pool.ntp.org/cn.ntp.org.cn/g" package/base-files/files/bin/c
 sed -i "s/2.openwrt.pool.ntp.org/cn.pool.ntp.org/g" package/base-files/files/bin/config_generate
 
 # Add UPX
-wget https://github.com/upx/upx/releases/download/v3.96/upx-3.96-amd64_linux.tar.xz
-tar -Jxf upx-3.96-amd64_linux.tar.xz
-cd upx-3.96-amd64_linux
-chmod +x upx
-cp upx openwrt/staging_dir/host/bin
+# wget https://github.com/upx/upx/releases/download/v3.96/upx-3.96-amd64_linux.tar.xz
+# tar -Jxf upx-3.96-amd64_linux.tar.xz
+# cd upx-3.96-amd64_linux
+# chmod +x upx
+# cp upx openwrt/staging_dir/host/bin
+
+wget -c https://github.com/hululu1068/Compiled-OpenWrt-Firmware/blob/9c12dc7a23b5c7adcd496834bcb3ec5adab0ae01/tools/upx-3.96-amd64_linux/upx ./staging_dir/host/bin/
+chmod +x openwrt/staging_dir/host/bin/upx
