@@ -22,9 +22,9 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 sed -i "s/UTC/CST-8/g" package/base-files/files/bin/config_generate
 
 # themes添加（svn co 命令意思：指定版本如https://github）
-git clone https://github.com/jerrykuku/luci-theme-argon.git package/custom-package/luci-theme-argon
-git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon.git package/custom-package/luci-theme-atmaterial-ColorIcon
-git clone https://github.com/thinktip/luci-theme-neobird.git package/custom-package/luci-theme-neobird
+# git clone https://github.com/jerrykuku/luci-theme-argon.git package/custom-package/luci-theme-argon
+# git clone https://github.com/esirplayground/luci-theme-atmaterial-ColorIcon.git package/custom-package/luci-theme-atmaterial-ColorIcon
+# git clone https://github.com/thinktip/luci-theme-neobird.git package/custom-package/luci-theme-neobird
 
 # 添加额外软件包
 git clone https://github.com/rufengsuixing/luci-app-adguardhome.git package/custom-package/luci-app-adguardhome
@@ -54,6 +54,3 @@ sed -i "s/2.openwrt.pool.ntp.org/cn.pool.ntp.org/g" package/base-files/files/bin
 # cd upx-3.96-amd64_linux
 # chmod +x upx
 # cp upx openwrt/staging_dir/host/bin
-
-wget -c https://github.com/hululu1068/Compiled-OpenWrt-Firmware/blob/9c12dc7a23b5c7adcd496834bcb3ec5adab0ae01/tools/upx-3.96-amd64_linux/upx ./staging_dir/host/bin/
-chmod +x openwrt/staging_dir/host/bin/upx
