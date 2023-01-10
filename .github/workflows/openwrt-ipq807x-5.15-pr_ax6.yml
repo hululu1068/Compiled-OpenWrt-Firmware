@@ -93,8 +93,8 @@ jobs:
       id: package
       run: |
         cd openwrt
-        sudo wget -c https://github.com/hululu1068/Compiled-OpenWrt-Firmware/blob/9c12dc7a23b5c7adcd496834bcb3ec5adab0ae01/tools/upx-3.96-amd64_linux/upx /staging_dir/host/bin/
-        sudo chmod +x /staging_dir/host/bin/upx
+        sudo wget -c https://github.com/hululu1068/Compiled-OpenWrt-Firmware/blob/9c12dc7a23b5c7adcd496834bcb3ec5adab0ae01/tools/upx-3.96-amd64_linux/upx
+        sudo chmod +x upx && cp upx ./staging_dir/host/bin/
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
