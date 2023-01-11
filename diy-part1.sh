@@ -34,3 +34,16 @@ git clone --depth=1 https://github.com/fw876/helloworld.git package/custom-packa
 # git clone https://github.com/Mitsuhaxy/luci-i18n-xray-zh-cn.git package/custom-package/luci-i18n-xray-zh-cn
 # git clone https://github.com/pymumu/smartdns.git package/custom-package/smartdns
 # git clone https://github.com/sirpdboy/luci-app-netdata.git package/custom-package/luci-app-netdata
+# git clone https://github.com/kiddin9/luci-app-dnsfilter.git package/custom-package/luci-app-dnsfilter
+# git clone https://github.com/garypang13/luci-app-bypass package/luci-app-bypass
+# git clone https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-iptvhelper
+
+# themes添加（svn co 命令意思：指定版本如https://github）
+# git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/custom-package/luci-theme-infinityfreedom
+# git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/custom-package/luci-theme-opentomcat
+# git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/custom-package/luci-theme-atmaterial
+
+
+#添加额外非必须软件包
+# git clone https://github.com/kenzok8/openwrt-packages.git package/kenzok8-packages
+# git clone https://github.com/linkease/istore.git package/custom-package/istore

@@ -18,7 +18,7 @@
 # sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 # 修改时区
-# sed -i "s/UTC/CST-8/g" package/base-files/files/bin/config_generate
+# sed -i 's/UTC/CST-8/g' package/base-files/files/bin/config_generate
 
 # Modify NTP Server
 # sed -i "s/0.openwrt.pool.ntp.org/ntp.aliyun.com/g" package/base-files/files/bin/config_generate
