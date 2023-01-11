@@ -33,6 +33,6 @@ git clone https://github.com/vernesong/OpenClash.git package/custom-package/Open
 
 git clone https://github.com/yichya/luci-app-xray.git package/custom-package/luci-app-xray
 git clone https://github.com/Mitsuhaxy/luci-i18n-xray-zh-cn.git package/custom-package/luci-i18n-xray-zh-cn
-git clone https://github.com/pymumu/smartdns.git package/custom-package/smartdns
+# git clone https://github.com/pymumu/smartdns.git package/custom-package/smartdns
 git clone https://github.com/sirpdboy/luci-app-netdata.git package/custom-package/luci-app-netdata
 
