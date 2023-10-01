@@ -38,21 +38,21 @@ env:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    if: github.event.repository.owner.id == github.event.sender.id
-
+#    if: github.event.repository.owner.id == github.event.sender.id
+#
     steps:
-    - name: Show system 检查CPU是否为8370C
-      run: |
-        echo -e "Total CPU cores\t: $(nproc)"
-        cat /proc/cpuinfo | grep 'model name'
-        cpu_name=$(cat /proc/cpuinfo | grep "model name" | head -n 1 | awk -F: '{print $2}' | sed 's/^[ \t]*//')
-        if [[ ! "$cpu_name" =~ "8370C" ]]; then
-        echo "CPU不为8370C，性能不足，停止执行命令"
-        exit 1
-        else
-        echo "CPU为8370C，继续执行命令"
-        ulimit -a
-        fi
+#    - name: Show system 检查CPU是否为8370C
+#      run: |
+#        echo -e "Total CPU cores\t: $(nproc)"
+#        cat /proc/cpuinfo | grep 'model name'
+#        cpu_name=$(cat /proc/cpuinfo | grep "model name" | head -n 1 | awk -F: '{print $2}' | sed 's/^[ \t]*//')
+#        if [[ ! "$cpu_name" =~ "8370C" ]]; then
+#        echo "CPU不为8370C，性能不足，停止执行命令"
+#        exit 1
+#        else
+#        echo "CPU为8370C，继续执行命令"
+#        ulimit -a
+#        fi
     - name: Maximize build space 最大化构建空间
       uses: easimon/maximize-build-space@master
       with:
