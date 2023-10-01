@@ -58,7 +58,6 @@ jobs:
         remove-haskell: 'true'
         remove-codeql: 'true'
 
-    steps:
     - name: Checkout 导入主分支
       uses: actions/checkout@main
 
