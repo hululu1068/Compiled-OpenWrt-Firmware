@@ -8,24 +8,20 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build x86_64-Official 
+name: Build x86_64-SNAPSHOT
 
+# UTC时间每月1日02:00开始运行，北京时间:+8
 on:
-  repository_dispatch:
-  workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
+  schedule:
+    - cron: 0 0 2 1 *
 
 env:
-  REPO_URL: https://github.com/hululu1068/OpenWRT-Code.git
-  REPO_BRANCH: v22.03.3
+  REPO_URL: https://github.com/openwrt/openwrt.git
+  REPO_BRANCH: openwrt-23.05
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: openwrt-x86_64-Official.config
-  DIY_P1_SH: diy-part01.sh
-  DIY_P2_SH: diy-part02.sh
+  CONFIG_FILE: x86_64/diffconfig_v23.05-SNAPSHOT
+  DIY_P1_SH: x86_64/diy-part01.sh
+  DIY_P2_SH: x86_64/diy-part02.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -35,7 +31,32 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    steps:
+    - name: Show system 检查CPU是否为8370C
+      run: |
+        echo -e "Total CPU cores\t: $(nproc)"
+        cat /proc/cpuinfo | grep 'model name'
+        cpu_name=$(cat /proc/cpuinfo | grep "model name" | head -n 1 | awk -F: '{print $2}' | sed 's/^[ \t]*//')
+        if [[ ! "$cpu_name" =~ "8370C" ]]; then
+        echo "CPU不为8370C，性能不足，停止执行命令"
+        exit 1
+        else
+        echo "CPU为8370C，继续执行命令"
+        ulimit -a
+        fi
+    - name: Maximize build space 最大化构建空间
+      uses: easimon/maximize-build-space@master
+      with:
+        swap-size-mb: 512
+        temp-reserve-mb: 100
+        root-reserve-mb: 1280
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+        remove-codeql: 'true'
 
     steps:
     - name: Checkout 导入主分支
@@ -91,7 +112,7 @@ jobs:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
-    - name: Download package 下载包
+    - name: Download package 下载dl包
       id: package
       run: |
         cd openwrt
