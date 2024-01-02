@@ -10,10 +10,10 @@
 
 name: Build x86_64-SNAPSHOT
 
-# UTC时间每月1日02:00开始运行，北京时间:+8
+# UTC时间每月1日08:30开始运行，北京时间:+8
 on:
   schedule:
-    - cron: 0 0 2 1 *
+    - cron: 30 8 1 * *
   workflow_dispatch:
     inputs:
       ssh:
@@ -121,7 +121,7 @@ jobs:
       id: package
       run: |
         cd openwrt
-        cp -r ../PATCH/files .
+        cp -r $GITHUB_WORKSPACE/PATCH/files .
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;

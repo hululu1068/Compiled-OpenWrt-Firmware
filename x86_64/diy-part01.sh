@@ -27,8 +27,8 @@
 echo "src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> "feeds.conf.default"
 echo "src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2.git;main" >> "feeds.conf.default"
 
-git clone https://github.com/yichya/luci-app-xray.git package/custom-package/luci-app-xray
-git clone https://github.com/xiechangan123/luci-i18n-xray-zh-cn.git package/custom-package/luci-i18n-xray-zh-cn
+# git clone https://github.com/yichya/luci-app-xray.git package/custom-package/luci-app-xray
+# git clone https://github.com/xiechangan123/luci-i18n-xray-zh-cn.git package/custom-package/luci-i18n-xray-zh-cn
 # git clone https://github.com/pymumu/smartdns.git package/custom-package/smartdns
 # git clone https://github.com/sirpdboy/luci-app-netdata.git package/custom-package/luci-app-netdata
 
