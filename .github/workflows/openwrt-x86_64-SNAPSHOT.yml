@@ -108,6 +108,7 @@ jobs:
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
+        cp -rf $GITHUB_WORKSPACE/PATCH/files .
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: SSH connection to Actions SSH连接
@@ -121,9 +122,8 @@ jobs:
       id: package
       run: |
         cd openwrt
-        cp -r $GITHUB_WORKSPACE/PATCH/files .
         make defconfig
-        make download -j8
+        make download -j$(nproc) || make download -j1 V=s
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
